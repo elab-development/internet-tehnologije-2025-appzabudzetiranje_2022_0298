@@ -1,3 +1,4 @@
+// src/pages/AboutUs.jsx
 import React, { useMemo } from "react";
 import { Link } from "react-router-dom";
 import {
@@ -322,7 +323,7 @@ export default function AboutUs() {
           <Grid
             container
             spacing={3}
-            // Force one row on md+; allow wrapping on small screens
+         
             sx={{ flexWrap: { xs: "wrap", md: "nowrap" } }}
           >
             {team.map((m, i) => (
