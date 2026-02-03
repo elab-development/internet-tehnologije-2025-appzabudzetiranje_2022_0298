@@ -176,7 +176,7 @@ export default function Home() {
           </Box>
         </Hero>
 
-        {/* FEATURES — guaranteed 4 in one row on md+ */}
+        {/* FEATURES — guaranteed  row on md+ */}
         <FeatureGrid>
           {features.map((f, i) => (
             <FeatureCard key={i}>
