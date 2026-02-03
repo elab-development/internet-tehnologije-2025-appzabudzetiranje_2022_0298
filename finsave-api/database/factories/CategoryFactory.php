@@ -11,6 +11,6 @@ class CategoryFactory extends Factory
         return [
             'name' => $this->faker->randomElement(['Food', 'Transport', 'Accommodation', 'Entertainment', 'Travel']),
         ];
-    }
+    } //izabraće rendom element iz niza i dodati u kategoriju
 }
 

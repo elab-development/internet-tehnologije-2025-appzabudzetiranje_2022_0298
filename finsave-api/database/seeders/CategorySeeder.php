@@ -14,6 +14,6 @@ class CategorySeeder extends Seeder
 
         foreach ($categories as $name) {
             Category::create(['name' => $name]);
-        }
+        } //ya svakku kategoriju kreiramo jednu u bazi podataka, a uzeli smo je iz niza
     }
 }
