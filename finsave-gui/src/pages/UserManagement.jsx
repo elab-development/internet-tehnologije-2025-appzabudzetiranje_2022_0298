@@ -1,3 +1,4 @@
+// src/pages/UserManagement.jsx
 import React, { useEffect, useMemo, useState } from "react";
 import {
   Box,
@@ -502,7 +503,7 @@ export default function UserManagement() {
         </DialogActions>
       </Dialog>
 
-      {/* SNACKBAR */}
+      {/*  */}
       <Snackbar
         open={snack.open}
         autoHideDuration={3500}
