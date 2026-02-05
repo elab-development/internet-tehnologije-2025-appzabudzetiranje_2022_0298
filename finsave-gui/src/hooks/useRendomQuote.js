@@ -1,25 +1,32 @@
 import { useState, useEffect } from "react";
 
 
-export default function useRandomQuote() {
-const [state, setState] = useState({ quote: null, loading: true, error: null });
+export default function useRandomUserImage() {
+    const [state, setState] = useState({ image: null, name: null, loading: true, error: null });
 
-
-useEffect(() => {
-    let isMounted = true;
-    (async () => {
-        try {
-                const res = await fetch("https://dummyjson.com/quotes/random");
-                if (!res.ok) throw new Error("Failed to fetch quote");
-                const data = await res.json();
-                if (isMounted) setState({ quote: data, loading: false, error: null });
+    useEffect(() => {
+        let isMounted = true;
+        (async () => {
+            try {
+            const res = await fetch("https://randomuser.me/api/");
+            if (!res.ok) throw new Error("Failed to fetch user");
+            const data = await res.json();
+            const user = data.results[0];
+                if (isMounted) {
+                    setState({
+                        image: user.picture.large,
+                        name: `${user.name.first} ${user.name.last}`,
+                        loading: false,
+                        error: null,
+                    });
+                }
             } catch (e) {
-                if (isMounted) setState({ quote: null, loading: false, error: e.message });
+                if (isMounted) setState({ image: null, name: null, loading: false, error: e.message });
             }
         })();
-    return () => { isMounted = false; };
-}, []);
+        return () => { isMounted = false; };
+    }, []);
 
 
-return state; // { quote: {quote, author, id}, loading, error }
+    return state; // { image, name, loading, error }
 }
