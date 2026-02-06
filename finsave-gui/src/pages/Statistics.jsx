@@ -115,7 +115,7 @@ export default function Statistics() {
           balance: Number(sData.balance || 0),
         });
 
-        // /expenses -> list relevant to this user; keep full payload shape flexible
+        // /-> list relevant to this user; keep full payload shape flexible
         const eData = e?.data?.data ?? e?.data ?? [];
         setExpenses(Array.isArray(eData) ? eData : []);
       } catch (err) {
