@@ -227,7 +227,7 @@ export default function Settlements() {
             </Stack>
           }
         >
-          {/* Totals */}
+          {/* Tals */}
           <Paper variant="outlined" sx={{ p: 1.5, mb: 2, borderRadius: 2 }}>
             <Stack direction="row" alignItems="center" justifyContent="space-between" flexWrap="wrap" gap={2}>
               <Stack direction="row" gap={1.5} alignItems="center">
