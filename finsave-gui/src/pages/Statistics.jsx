@@ -1,3 +1,4 @@
+// src/pages/Statistics.jsx
 import React, { useEffect, useMemo, useState } from "react";
 import {
   Box,
