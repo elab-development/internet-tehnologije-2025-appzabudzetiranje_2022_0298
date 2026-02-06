@@ -22,7 +22,7 @@ export default function Nav() {
   const location = useLocation();
   const navigate = useNavigate();
 
-  // Read user
+  // reead user
   const user = useMemo(() => {
     try { return JSON.parse(sessionStorage.getItem("auth_user") || "{}"); }
     catch { return {}; }

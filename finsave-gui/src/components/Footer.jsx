@@ -2,12 +2,6 @@ import React from "react";
 import { Box, Container, Typography } from "@mui/material";
 import { alpha } from "@mui/material/styles";
 
-/**
- * FinSave Footer (modern + minimal)
- * - Rounded top, subtle gradient, soft shadow
- * - Text: "© YEAR FinSave — All rights reserved."
- * - Readable code with small, clear styles
- */
 
 const COLORS = {
   primary: "#318D4F",

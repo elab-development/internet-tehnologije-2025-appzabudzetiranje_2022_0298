@@ -34,8 +34,7 @@ export default function Slider({
   const next = () => setIndex((i) => (i + 1) % length);
   const prev = () => setIndex((i) => (i - 1 + length) % length);
   const goTo = (i) => setIndex(((i % length) + length) % length);
-
-  // Autoplay
+  
   useEffect(() => {
     if (!autoPlay || length <= 1 || paused) return;
     timerRef.current = setInterval(next, interval);
