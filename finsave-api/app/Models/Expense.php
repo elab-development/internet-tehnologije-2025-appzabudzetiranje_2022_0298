@@ -17,7 +17,7 @@ class Expense extends Model
         "paid_at",
     ]; // 
     protected $casts= [
-        "amount" => 'decimal>z', 
+        "amount" => 'decimal:2', 
         "paid_at" => 'datetime',
         ]; //kastovanje automatski
 
