@@ -1,3 +1,4 @@
+// src/pages/Auth.jsx
 import React, { useEffect, useState } from "react";
 import {
   Box, Paper, Tabs, Tab, TextField, Button, Typography,
@@ -104,7 +105,7 @@ export default function Auth() {
       role = (JSON.parse(sessionStorage.getItem("auth_user") || "{}")?.role || "").toLowerCase();
     } catch {}
     forceGo(role === "admin" ? "/admin" : "/home");
-  }, []); // run once when /auth mounts
+  }, []); // auth mounts
 
   // ===== LOGIN =====
   const handleLogin = async (e) => {
