@@ -1,0 +1,26 @@
+/vendor
+/node_modules
+/public/storage
+/storage/*.key
+/storage/logs/*
+/bootstrap/cache/*.php
+
+.env
+.env.*
+.phpunit.result.cache
+auth.json
+composer.lock
+
+npm-debug.log
+yarn-error.log
+
+# IDE
+.vscode
+.idea
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
