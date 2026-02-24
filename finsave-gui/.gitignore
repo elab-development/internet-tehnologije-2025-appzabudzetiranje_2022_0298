@@ -1,6 +1,7 @@
 /node_modules
 /build
 /dist
+/storage/api-docs/
 .env
 .env.*
 
