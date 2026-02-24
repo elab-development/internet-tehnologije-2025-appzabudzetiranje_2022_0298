@@ -1,0 +1,65 @@
+services:
+  db:
+    image: mysql:8.0
+    container_name: finsave-db
+    environment:
+      MYSQL_DATABASE: finsave
+      MYSQL_USER: finsave
+      MYSQL_PASSWORD: finsave
+      MYSQL_ROOT_PASSWORD: root
+    ports:
+      - "3307:3306"
+    volumes:
+      - db_data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-proot"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+
+  api:
+    build:
+      context: ./finsave-api
+    container_name: finsave-api
+    working_dir: /var/www
+    volumes:
+      - ./finsave-api:/var/www
+    environment:
+      DB_CONNECTION: mysql
+      DB_HOST: db
+      DB_PORT: 3306
+      DB_DATABASE: finsave
+      DB_USERNAME: finsave
+      DB_PASSWORD: finsave
+    depends_on:
+      db:
+        condition: service_healthy
+
+  nginx:
+    image: nginx:alpine
+    container_name: finsave-nginx
+    ports:
+      - "8080:80"
+    volumes:
+      - ./finsave-api:/var/www
+      - ./docker/nginx/default.conf:/etc/nginx/conf.d/default.conf
+    depends_on:
+      - api
+
+  gui:
+    build:
+      context: ./finsave-gui
+    container_name: finsave-gui
+    working_dir: /app
+    volumes:
+      - ./finsave-gui:/app
+      - /app/node_modules
+    ports:
+      - "3000:3000"
+    environment:
+      - CHOKIDAR_USEPOLLING=true
+    depends_on:
+      - nginx
+
+volumes:
+  db_data:
